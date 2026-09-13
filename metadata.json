@@ -1,0 +1,6 @@
+{
+  "name": "Meeking",
+  "description": "Free and easy video meetings with real-time video, audio, screen sharing, hand raising, and in-call chat.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

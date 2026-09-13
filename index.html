@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" class="h-full bg-[#1a1b1e]">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function() {
+        try {
+          var _rawFetch = window.fetch;
+          var _currentFetch = function() {
+            return _rawFetch.apply(window, arguments);
+          };
+          Object.defineProperty(window, 'fetch', {
+            get: function() {
+              return _currentFetch;
+            },
+            set: function(fn) {
+              _currentFetch = fn;
+            },
+            configurable: true,
+            enumerable: true
+          });
+        } catch (e) {
+          try {
+            if (typeof Window !== 'undefined' && Window.prototype) {
+              var _protoFetch = Window.prototype.fetch;
+              var _currentProtoFetch = function() {
+                return _protoFetch.apply(window, arguments);
+              };
+              Object.defineProperty(Window.prototype, 'fetch', {
+                get: function() {
+                  return _currentProtoFetch;
+                },
+                set: function(fn) {
+                  _currentProtoFetch = fn;
+                },
+                configurable: true,
+                enumerable: true
+              });
+            }
+          } catch (err) {}
+        }
+      })();
+    </script>
+    <title>Meeking - Free & Easy Video Meetings</title>
+    <meta name="description" content="Free and easy video meetings with real-time video, audio, screen sharing, hand raising, and in-call chat." />
+    <meta property="og:title" content="Meeking - Free & Easy Video Meetings" />
+    <meta property="og:description" content="Free and easy video meetings with real-time video, audio, screen sharing, hand raising, and in-call chat." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'><path fill='%233b82f6' d='M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64v38.4l186.6-93.3c19.5-9.8 43.4 4.3 43.4 26.3V413.4c0 22-23.9 36.1-43.4 26.3L384 345.6V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z'/></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="h-full bg-[#1a1b1e] text-[#e8eaed] antialiased selection:bg-blue-600 selection:text-white">
+    <div id="root" class="h-full flex flex-col"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
